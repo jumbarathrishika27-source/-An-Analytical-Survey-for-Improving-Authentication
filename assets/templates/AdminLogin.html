@@ -1,0 +1,51 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block contents%}
+<section id="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeInDown">Authentication is a very important</h2>
+            <p class="wow fadeInDown">Authentication is important because it enables organizations to keep their
+                networks secure by permitting only authenticated users (or processes) to access their protected
+                resources, which may include computer systems, networks, databases, websites and other network-based
+                applications or services.</p>
+        </div>
+        <div class="row FeatLayout">
+            <div class="col-md-5 Featimg"><img src="{%static 'images/features_img.png'%}" alt="feature"
+                                               class="img-responsive center-block"></div>
+            <div class="col-md-7">
+                <h2>Admin Login Form</h2>
+                <p>
+                <form action="{%url 'AdminLoginCheck'%}" method="post" novalidate>
+                        {%csrf_token%}
+
+                        <div id="div_id_username" class="form-group"><label for="id_username" class=" requiredField">
+                            Username<span class="asteriskField">*</span> </label>
+                            <div><input type="text" name="loginid" required autofocus autocapitalize="none"
+                                        autocomplete="username" maxlength="150" class="textinput textInput form-control"
+                                        required id="id_username"></div>
+                        </div>
+                        <div id="div_id_password" class="form-group"><label for="id_password" class=" requiredField">
+                            Password<span class="asteriskField">*</span> </label>
+                            <div><input type="password" name="pswd" required autocomplete="current-password"
+                                        class="textinput textInput form-control" required id="id_password"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Login</button>
+
+                    </form>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <font color='RED'> {{ message }}</font>
+                    {% endfor %}
+                    {% endif %}
+
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

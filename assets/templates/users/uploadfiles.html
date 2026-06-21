@@ -1,0 +1,46 @@
+{%extends 'users/user_base.html'%}
+{%load static%}
+{%block contents%}
+<section id="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeInDown">Authentication is a very important</h2>
+            <p class="wow fadeInDown">Authentication is important because it enables organizations to keep their
+                networks secure by permitting only authenticated users (or processes) to access their protected
+                resources, which may include computer systems, networks, databases, websites and other network-based
+                applications or services.</p>
+        </div>
+        <div class="row FeatLayout">
+            <div class="col-md-5 Featimg"><img src="{%static 'images/features_img.png'%}" alt="feature"
+                                               class="img-responsive center-block"></div>
+            <div class="col-md-7">
+                <h2>Encryption Services</h2>
+                <h4><font color="GREEN">{{msg}}</font></h4>
+                <p>
+                <form action="{%url 'UserUploadFiles'%}" method="post" enctype="multipart/form-data">
+                    {%csrf_token%}
+
+                    <div id="div_id_username" class="form-group"><label for="id_username" class=" requiredField">
+                        Select a CSV File <span class="asteriskField">*</span> </label>
+                        <div> <input type="file" id="contact_subject" name="file" accept=".csv" class="form-control" placeholder="Select an Image"  required/></div>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Upload</button>
+
+                </form>
+                {% if messages %}
+                {% for message in messages %}
+                <font color='RED'> {{ message }}</font>
+                {% endfor %}
+                {% endif %}
+
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

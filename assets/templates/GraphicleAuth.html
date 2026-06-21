@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block contents%}
+<section id="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeInDown">Authentication is a very important</h2>
+            <p class="wow fadeInDown">Authentication is important because it enables organizations to keep their
+                networks secure by permitting only authenticated users (or processes) to access their protected
+                resources, which may include computer systems, networks, databases, websites and other network-based
+                applications or services.</p>
+        </div>
+        <div class="row FeatLayout">
+            <div class="col-md-5 Featimg"><img src="{%static 'images/features_img.png'%}" alt="feature"
+                                               class="img-responsive center-block"></div>
+            <div class="col-md-7">
+                <h2>Scan the QR Code and enter Graphical Password</h2>
+                <p>
+                <form action="{%url 'qrcodecheck'%}" method="post">
+                    {% csrf_token %}
+                    <input type="text" name="data" id="data" placeholder="Enter your QR Code">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+
+                <div class="qr-img">
+                    {% if img_name %}
+                    <img src="/media/{{ img_name }}" alt="qr code">
+                    {% endif %}
+                </div>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

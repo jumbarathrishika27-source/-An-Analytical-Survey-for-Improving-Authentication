@@ -1,0 +1,37 @@
+{%extends 'admins/admin_base.html'%}
+{%block contents%}
+
+<section id="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeInDown">Authentication is a very important</h2>
+        <h3 align="center" style="color:white;">Cloud Encrypted Files</h3></p><br>
+         <table class="table table-bordered">
+    <thead>
+      <tr class="table-danger">
+        <th>S.No</th>
+        <th>File Name</th>
+        <th>Key</th>
+        <th>Date</th>
+        <!--<th>Image</th>-->
+        <th>Cipher Download</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+     <tr style="color: BLUE; ">
+     <td>{{forloop.counter}}</td>
+     <td>{{i.filename}}</td>
+     <td>{{i.enckey}}</td>
+     <td>{{i.cdate}}</td>
+     <td><a class="btn-link" href="{{i.file.url }}" target="_blank">Download</a></td>
+     </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+    </div>
+    </div>
+</section>
+
+{%endblock%}

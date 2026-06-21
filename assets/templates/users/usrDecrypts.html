@@ -1,0 +1,38 @@
+{%extends 'users/user_base.html'%}
+{%block contents%}
+
+<section id="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title wow fadeInDown">Authentication is a very important</h2>
+        <h3 align="center" style="color:white;">File Decrypts</h3></p><br>
+         <table class="table table-bordered">
+    <thead>
+      <tr class="table-danger">
+        <th>S.No</th>
+        <th>File Name</th>
+        <th>Key Location</th>
+        <th>Date</th>
+        <th>Cipher Download</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in data %}
+     <tr style="color: GREEN; ">
+     <td>{{forloop.counter}}</td>
+     <td>{{i.filename}}</td>
+     <td>{{i.enckey}}</td>
+     <td>{{i.cdate}}</td>
+     <!--<td><img src="{{i.file}}" width="45" height="40"> </td>-->
+     <td><a class="btn-link" href="/dataDecrypt?fileId={{i.id }}">Decrypt</a></td>
+         <!--<td><a class="btn-link" href="/download/?fileis={{i.filename }}" target="_blank">Download</a></td>-->
+     </tr>
+    {% endfor %}
+
+    </tbody>
+  </table>
+    </div>
+    </div>
+</section>
+
+{%endblock%}

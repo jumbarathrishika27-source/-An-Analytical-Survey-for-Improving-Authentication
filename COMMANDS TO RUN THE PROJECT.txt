@@ -1,0 +1,7 @@
+commands to run the project
+
+To active virtual environment:
+	venv\Scripts\activate
+
+then
+	python manage.py runserver
